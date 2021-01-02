@@ -1,0 +1,11 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "name": "local",
+      "database": "${workspaceFolder:nestjs-land}/db.sqlite"
+    }
+  ],
+  "sqltools.useNodeRuntime": true
+}

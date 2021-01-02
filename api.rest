@@ -1,0 +1,65 @@
+# API Documentation
+# =================
+# Use with the "REST Client" VSCode extension (humao.rest-client).
+
+@apiUrl = http://localhost:3000
+@email = user1@email.com
+@password = 1234
+
+################################################
+# Auth
+################################################
+
+// @name login
+POST {{apiUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "identifier": "{{email}}",
+  "password": "{{password}}"
+}
+
+################################################
+
+// @name refreshToken
+POST {{apiUrl}}/auth/refresh_token
+Authorization: Basic {{login.response.body.$.accessToken}}
+Content-Type: application/json
+
+{
+  "refreshToken": "{{login.response.body.$.refreshToken}}"
+}
+
+################################################
+# Users
+################################################
+
+// @name createUser
+POST {{apiUrl}}/users
+Content-Type: application/json
+
+{
+  "email": "user1@email.com",
+  "password": "1234",
+  "displayName": "User 1"
+}
+
+################################################
+
+// @name updateUser
+PUT {{apiUrl}}/users/1
+Content-Type: application/json
+
+{
+  "email": "user1@email.com",
+  "password": "1234",
+  "displayName": "User 1"
+}
+
+################################################
+
+// @name getCurrentUser
+GET {{apiUrl}}/users/me
+Authorization: Bearer {{login.response.body.$.accessToken}}
+
+################################################
