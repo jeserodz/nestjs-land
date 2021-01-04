@@ -23,7 +23,7 @@ Import the `AuthModule` into your application your module:
 
 ```typescript
 ...
-import { AuthModule } from '../libs/auth/src';
+import { AuthModule } from '@nestjs-land/auth';
 import { User } from './users/entities/user.entity';
 
 @Module({

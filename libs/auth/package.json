@@ -1,9 +1,10 @@
 {
   "name": "@nestjs-land/auth",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Authentication and authorization for Nest.js applications",
   "author": "Jese Rodriguez <jeserodriguez@gmail.com>",
   "license": "ISC",
+  "private": false,
   "main": "index.js",
   "scripts": {},
   "keywords": [
