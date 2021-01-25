@@ -4,6 +4,11 @@
   "description": "Authentication and authorization for Nest.js applications",
   "author": "Jese Rodriguez <jeserodriguez@gmail.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeserodz/nestjs-land.git",
+    "directory": "libs/storage"
+  },
   "main": "index.js",
   "scripts": {},
   "keywords": [
@@ -21,11 +26,6 @@
     "typeorm": "^0.2.30",
     "url-parse-lax": "^4.0.0",
     "uuid": "^8.3.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/facebook/react.git",
-    "directory": "packages/react-dom"
   },
   "devDependencies": {
     "@types/minio": "^7.0.7",

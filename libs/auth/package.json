@@ -4,6 +4,11 @@
   "description": "Authentication and authorization for Nest.js applications",
   "author": "Jese Rodriguez <jeserodriguez@gmail.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeserodz/nestjs-land.git",
+    "directory": "libs/auth"
+  },
   "private": false,
   "main": "index.js",
   "scripts": {},
