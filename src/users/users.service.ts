@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { InjectEntityManager } from '@nestjs/typeorm';
 import { EntityManager } from 'typeorm';
 import { AuthService } from '../../libs/auth/src';
+import { StorageService } from '../../libs/storage/src';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
@@ -11,9 +12,10 @@ export class UsersService {
   constructor(
     @InjectEntityManager() private readonly entityManager: EntityManager,
     @Inject(AuthService) private readonly authService: AuthService,
+    @Inject(StorageService) private readonly storageService: StorageService,
   ) {}
 
-  create(createUserDto: CreateUserDto) {
+  async create(createUserDto: CreateUserDto) {
     createUserDto.password = this.authService.encryptPassword(
       createUserDto.password,
     );
@@ -21,11 +23,11 @@ export class UsersService {
     return this.entityManager.save(User, createUserDto);
   }
 
-  findAll() {
+  async findAll() {
     return this.entityManager.find(User);
   }
 
-  findOne(id: number) {
+  async findOne(id: number) {
     return this.entityManager.findOne(User, id);
   }
 
@@ -42,7 +44,14 @@ export class UsersService {
     return this.entityManager.save(User, user);
   }
 
-  remove(id: number) {
+  async remove(id: number) {
     return this.entityManager.delete(User, id);
+  }
+
+  async saveProfilePicture(id: number, buffer: Buffer) {
+    const user = await this.findOne(id);
+    const file = await this.storageService.saveFile(buffer);
+    user.profilePicture = file;
+    this.entityManager.save(User, user);
   }
 }

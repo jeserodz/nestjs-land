@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Body, Put, Param, Delete, UseGuards } from '@nestjs/common'; // prettier-ignore
+import { Controller, Get, Post, Body, Put, Param, Delete, UseGuards, UseInterceptors, UploadedFile } from '@nestjs/common'; // prettier-ignore
+import { FileInterceptor } from '@nestjs/platform-express';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -39,5 +40,11 @@ export class UsersController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.usersService.remove(+id);
+  }
+
+  @Post(':id/profilePicture')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadProfilePicture(@UploadedFile() file, @Param('id') id: string) {
+    this.usersService.saveProfilePicture(+id, file.buffer);
   }
 }

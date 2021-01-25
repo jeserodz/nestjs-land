@@ -17,6 +17,12 @@
       ],
       "@nestjs-land/auth/*": [
         "libs/auth/src/*"
+      ],
+      "@nestjs-land/storage": [
+        "libs/storage/src"
+      ],
+      "@nestjs-land/storage/*": [
+        "libs/storage/src/*"
       ]
     }
   }

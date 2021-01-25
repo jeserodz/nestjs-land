@@ -2,8 +2,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { File } from '@nestjs-land/storage';
 
 @Entity()
 export class User {
@@ -27,6 +30,10 @@ export class User {
 
   @Column({ default: false })
   disabled: boolean;
+
+  @OneToOne(() => File, { nullable: true, eager: true })
+  @JoinColumn()
+  profilePicture: File;
 
   @Column({ nullable: true })
   lastLoginAt?: Date;

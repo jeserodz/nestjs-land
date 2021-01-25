@@ -4,7 +4,7 @@
       "previewLimit": 50,
       "driver": "SQLite",
       "name": "local",
-      "database": "${workspaceFolder:nestjs-land}/db.sqlite"
+      "database": "database.sqlite"
     }
   ],
   "sqltools.useNodeRuntime": true
