@@ -1,6 +1,6 @@
 {
   "name": "@nestjs-land/storage",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Files storage module with S3 for NestJS applications.",
   "author": "Jese Rodriguez <jeserodriguez@gmail.com>",
   "license": "ISC",
@@ -9,8 +9,10 @@
     "url": "https://github.com/jeserodz/nestjs-land.git",
     "directory": "libs/storage"
   },
-  "main": "index.js",
-  "scripts": {},
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf -rf dist && tsc -p tsconfig.lib.json"
+  },
   "keywords": [
     "nestjs",
     "storange",
@@ -23,6 +25,7 @@
     "@nestjs/typeorm": "^7.1.5",
     "file-type": "^16.2.0",
     "minio": "^7.0.18",
+    "rimraf": "^3.0.2",
     "typeorm": "^0.2.30",
     "url-parse-lax": "^4.0.0",
     "uuid": "^8.3.2"

@@ -1,6 +1,6 @@
 {
   "name": "@nestjs-land/auth",
-  "version": "0.0.2",
+  "version": "1.0.3",
   "description": "Authentication and authorization for Nest.js applications",
   "author": "Jese Rodriguez <jeserodriguez@gmail.com>",
   "license": "ISC",
@@ -10,8 +10,10 @@
     "directory": "libs/auth"
   },
   "private": false,
-  "main": "index.js",
-  "scripts": {},
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf -rf dist && tsc -p tsconfig.lib.json"
+  },
   "keywords": [
     "nestjs",
     "auth",
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
-    "@types/jsonwebtoken": "^8.5.0"
+    "@types/jsonwebtoken": "^8.5.0",
+    "rimraf": "^3.0.2"
   }
 }
