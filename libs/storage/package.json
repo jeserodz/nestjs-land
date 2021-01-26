@@ -1,7 +1,7 @@
 {
   "name": "@nestjs-land/storage",
   "version": "1.0.1",
-  "description": "Authentication and authorization for Nest.js applications",
+  "description": "Files storage module with S3 for NestJS applications.",
   "author": "Jese Rodriguez <jeserodriguez@gmail.com>",
   "license": "ISC",
   "repository": {

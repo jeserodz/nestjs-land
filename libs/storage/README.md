@@ -1,6 +1,6 @@
 # NestJS Land: Storage
 
-Storage module for NestJS applications.
+Files storage module with S3 for NestJS applications.
 
 # Features
 
